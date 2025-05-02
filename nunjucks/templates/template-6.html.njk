@@ -1,0 +1,18 @@
+{% extends 'template-layout.html.njk' %}
+
+{% macro itemStatusIcon(done) -%}
+    {% if done %}/{% else %}x{% endif %}
+{%- endmacro -%}
+
+{% block content %}
+    <p>This application is a powerful to-do app for managing your tasks.</p>
+    {%- if todo %}
+        <ul>
+            {%- for item in todo %}
+                <li>{{ itemStatusIcon(item.done) }} {{ item.task }}</li>
+            {%- endfor %}
+        </ul>
+    {%- else -%}
+        <p>Woop! Nothing to do.</p>
+    {%- endif %}
+{% endblock %}

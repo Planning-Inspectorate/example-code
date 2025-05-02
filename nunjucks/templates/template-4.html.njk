@@ -1,0 +1,15 @@
+<html lang="en">
+<body>
+<h1>Contacts</h1>
+{%- for id, contact in contacts %}
+    <h2>{{ contact.name }}</h2>
+    <dl>
+        <dt>Age</dt>
+        <dd>{{ contact.age }}</dd>
+        <dt>Job</dt>
+        <dd>{{ contact.job }}</dd>
+    </dl>
+    <p><a href="/users/{{ id }}">Manage this contact</a></p>
+{%- endfor %}
+</body>
+</html>

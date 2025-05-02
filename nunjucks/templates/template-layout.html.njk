@@ -1,0 +1,22 @@
+<html lang="en">
+<body>
+{%- block title %}
+    <h1>{{ pageTitle }}</h1>
+{% endblock -%}
+<main>
+    <div class="sidebar">
+        {%- block sidebar %}
+            <h2>Sidebar</h2>
+            <ul>
+                {%- for item in navigation %}
+                    <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+                {%- endfor %}
+            </ul>
+        {% endblock -%}
+    </div>
+    <div class="content">
+        {%- block content %}{% endblock %}
+    </div>
+</main>
+</body>
+</html>

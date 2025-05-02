@@ -1,0 +1,11 @@
+{
+  "name": "example-code",
+  "version": "1.0.0",
+  "description": "Code examples and snippets to complement learning materials. Code is organised with a folder per topic, and each example in a separate file or folder.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "nunjucks": "^3.2.4"
+  }
+}

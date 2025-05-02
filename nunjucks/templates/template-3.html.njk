@@ -1,0 +1,16 @@
+<html lang="en">
+<body>
+<h1>To Do App</h1>
+<p>So far, the following individuals have
+    contributed: {% for person in contributors %}{{ person }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+{%- if todo %}
+    <ul>
+        {%- for item in todo %}
+            <li>{% if item.done %}✅{% else %}❌{% endif %}{{ item.task }}</li>
+        {%- endfor %}
+    </ul>
+{%- else -%}
+    <p>Woop! Nothing to do.</p>
+{%- endif %}
+</body>
+</html>
