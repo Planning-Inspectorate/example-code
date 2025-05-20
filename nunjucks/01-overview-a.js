@@ -6,6 +6,20 @@ function run() {
     console.log(string);
 
     // some conflicting change
+
+    /**
+     * @type {Object<string, string>}
+     */
+    const obj = {hello: 'world'};
+
+    for (let i = 0; i < 10; i++) {
+        console.log(i);
+    }
+
+
+    for (const objElement of obj) {
+
+    }
 }
 
 run();
