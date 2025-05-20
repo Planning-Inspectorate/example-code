@@ -1,0 +1,44 @@
+{%- macro table(options) -%}
+    <table>
+        <thead>
+        <tr>
+            {%- for header in options.headers %}
+                <th>{{ header }}</th>
+            {%- endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {%- for row in options.rows %}
+            <tr>
+                {%- for column in row %}
+                    {%- if column.html %}
+                        <td>{{ column.html | safe }}</td>
+                    {% else %}
+                        <td>{{ column.text }}</td>
+                    {%- endif -%}
+                {%- endfor %}
+            </tr>
+        {%- endfor %}
+        </tbody>
+    </table>
+{%- endmacro -%}
+
+{%- set contactsTableRows = [] -%}
+{%- for id, contact in contacts %}
+    {%- set contactsTableRows = (contactsTableRows.push([
+        { "text": contact.name },
+        { "text": contact.age },
+        { "text": contact.job },
+        { "html": '<a href="/users/' + id + '">Manage</a>' }
+    ]), contactsTableRows) -%}
+{%- endfor -%}
+
+<html lang="en">
+<body>
+<h1>Contacts</h1>
+    {{ table({
+        headers: ["Name", "Age", "Job", "Actions"],
+        rows: contactsTableRows
+    }) }}
+</body>
+</html>
