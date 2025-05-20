@@ -7,6 +7,7 @@ function run() {
         day: new Date().toLocaleDateString('en-GB', {weekday: 'long'})
     });
     console.log(string);
+    // some other change
 }
 
 run();
