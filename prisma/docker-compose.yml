@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  mssql:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    container_name: example-mssql
+    cap_add: ['SYS_PTRACE']
+    user: root
+    init: true
+    environment:
+      - 'ACCEPT_EULA=1'
+      - 'MSSQL_SA_PASSWORD=DockerDatabaseP@22word!'
+    ports:
+      - '1434:1433'
+    hostname: mssql
+    volumes:
+      - ./config/mssql.conf:/var/opt/mssql/mssql.conf

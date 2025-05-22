@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = "sqlserver://localhost:1434;database=pins_example_code_prisma;user=sa;password=DockerDatabaseP@22word!;trustServerCertificate=true"
+}
+
+model Task {
+  id      Int       @id
+  created DateTime  @default(now())
+  updated DateTime?
+  title   String
+  done    Boolean   @default(false)
+  // the user ID of the User who owns the task
+  userId  Int?
+  User    User?     @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id          Int       @id
+  created     DateTime  @default(now())
+  updated     DateTime?
+  name        String
+  email       String    @unique
+  displayName String
+  // tasks owned by this User
+  Tasks       Task[]
+}
