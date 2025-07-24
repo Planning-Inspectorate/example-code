@@ -7,6 +7,8 @@
   "private": true,
   "dependencies": {
     "@prisma/client": "^6.8.2",
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
     "nunjucks": "^3.2.4",
     "prisma": "^6.8.2"
   }
