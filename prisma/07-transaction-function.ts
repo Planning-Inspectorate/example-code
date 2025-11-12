@@ -4,6 +4,9 @@ async function run() {
     const client = new PrismaClient();
     await client.$transaction(async ($tx) => {
         const task = await $tx.task.findUnique({where: {id: 1}});
+        if (!task) {
+            throw new Error('task not found');
+        }
 
         // if this task is edited while this transaction is in progress, it'll be re-run with the latest data, and no
         // changes from the first run would be applied
