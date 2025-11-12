@@ -12,18 +12,35 @@ datasource db {
 }
 
 model Task {
-  id      Int       @id
+  id      Int       @id @default(autoincrement())
   created DateTime  @default(now())
   updated DateTime?
   title   String
   done    Boolean   @default(false)
+
   // the user ID of the User who owns the task
-  userId  Int?
-  User    User?     @relation(fields: [userId], references: [id])
+  userId Int?
+  User   User? @relation(fields: [userId], references: [id])
+
+  // any documents associated with the task
+  Attachments Document[]
+}
+
+model Document {
+  id      Int       @id @default(autoincrement())
+  created DateTime  @default(now())
+  updated DateTime?
+
+  filename String
+  size     Int
+  path     String
+
+  taskId Int
+  Task   Task @relation(fields: [taskId], references: [id])
 }
 
 model User {
-  id          Int       @id
+  id          Int       @id @default(autoincrement())
   created     DateTime  @default(now())
   updated     DateTime?
   name        String

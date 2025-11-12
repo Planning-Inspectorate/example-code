@@ -4,7 +4,6 @@ import {runDbScript} from "./run.ts";
 async function run(client: PrismaClient) {
     const mando = await client.user.create({
         data: {
-            id: 1,
             name: 'Mandalorian',
             email: 'din@djarin.com',
             displayName: 'Mando'
