@@ -1,8 +1,7 @@
-import {PrismaClient} from '@prisma/client';
+import type {PrismaClient} from './generated/client.ts';
+import {runDbScript} from "./run.ts";
 
-async function run() {
-    const client = new PrismaClient();
-
+async function run(client: PrismaClient) {
     // first create some tasks, using upsert (create or update) so this can be run multiple times
     for (let i = 0; i < 10; i++) {
         const task = {
@@ -23,4 +22,4 @@ async function run() {
     console.log(tasks);
 }
 
-run().catch(console.error);
+runDbScript(run).catch(console.error);

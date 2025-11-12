@@ -1,7 +1,7 @@
-import {PrismaClient} from '@prisma/client';
+import type {PrismaClient} from './generated/client.ts';
+import {runDbScript} from "./run.ts";
 
-async function run() {
-    const client = new PrismaClient();
+async function run(client: PrismaClient) {
     await client.$transaction([
         client.user.update({
             where: {id: 1},
@@ -17,4 +17,4 @@ async function run() {
     console.log('transaction complete');
 }
 
-run().catch(console.error);
+runDbScript(run).catch(console.error);

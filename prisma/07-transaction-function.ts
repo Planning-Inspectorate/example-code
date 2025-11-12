@@ -1,7 +1,7 @@
-import {PrismaClient} from '@prisma/client';
+import type {PrismaClient} from './generated/client.ts';
+import {runDbScript} from "./run.ts";
 
-async function run() {
-    const client = new PrismaClient();
+async function run(client: PrismaClient) {
     await client.$transaction(async ($tx) => {
         const task = await $tx.task.findUnique({where: {id: 1}});
         if (!task) {
@@ -24,4 +24,4 @@ async function run() {
     console.log(task);
 }
 
-run().catch(console.error);
+runDbScript(run).catch(console.error);

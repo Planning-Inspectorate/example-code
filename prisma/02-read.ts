@@ -1,12 +1,11 @@
-import {PrismaClient} from '@prisma/client';
+import type {PrismaClient} from './generated/client.ts';
+import {runDbScript} from "./run.ts";
 
-async function run() {
-    const client = new PrismaClient();
-
+async function run(client: PrismaClient) {
     const mando = await client.user.findUnique({
         where: {id: 1}
     });
     console.log(mando);
 }
 
-run().catch(console.error);
+runDbScript(run).catch(console.error);
