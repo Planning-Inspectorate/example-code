@@ -8,7 +8,6 @@ generator client {
 
 datasource db {
   provider = "sqlserver"
-  url      = "sqlserver://localhost:1434;database=pins_example_code_prisma;user=sa;password=DockerDatabaseP@22word!;trustServerCertificate=true"
 }
 
 model Task {

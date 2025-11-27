@@ -6,12 +6,12 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "@prisma/adapter-mssql": "^6.19.0",
-    "@prisma/client": "^6.19.0",
+    "@prisma/adapter-mssql": "^7.0.1",
+    "@prisma/client": "^7.0.1",
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "nunjucks": "^3.2.4",
-    "prisma": "^6.19.0"
+    "prisma": "^7.0.1"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
