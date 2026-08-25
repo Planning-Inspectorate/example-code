@@ -1,6 +1,6 @@
 # Temporal API Examples
 
-These examples use the [Temporal API]([https://tc39.es/proposal-temporal/docs/](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal)) available natively in Node.js v26+.
+These examples use the [Temporal API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal) available natively in Node.js v26+.
 
 The Temporal API replaces the need for libraries like `date-fns-tz` when working with timezones.
 
